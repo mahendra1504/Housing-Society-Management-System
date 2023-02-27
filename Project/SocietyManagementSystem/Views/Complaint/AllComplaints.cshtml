@@ -1,0 +1,123 @@
+﻿@model IEnumerable<SocietyManagementSystem.Models.Complaint>
+
+@{
+    ViewData["Title"] = "AllComplaints";
+}
+<style>
+
+    .bg-image {
+        position: absolute;
+        width: 35%;
+        height: 50%;
+        margin-right: 30px;
+        margin-left: 600px;
+        margin-top: 10px;
+    }
+
+    .bg-image1 {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .reg_label {
+        position: absolute;
+        top: 50px;
+        bottom: 0;
+        margin-left: 30px;
+        margin-right: 0;
+        color: snow;
+    }
+
+    div {
+        width: 200%;
+    }
+
+    input[type=text], input[type=password], input[type=email], input[type=number], input[type=date] {
+        border-radius: 25px;
+    }
+
+    label {
+        color: snow;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    h1 {
+        text-shadow: 2px 2px 5px;
+    }
+
+    .table {
+        position: absolute;
+        margin-top: 50px;
+        margin-left: 0;
+        width: 70%;
+    }
+
+    th {
+        color: snow;
+    }
+
+    a {
+        color: snow;
+    }
+    .a1 {
+        position:absolute;
+        margin-top:15px;
+        color: snow;
+    }
+
+    td {
+        color: snow;
+    }
+
+    th, td {
+        border-bottom: 1px solid #ddd;
+    }
+</style>
+<body>
+    <img src="~/images/loginhd.jpg" class="bg-image1" />
+    <h1 class="reg_label">All Complaints</h1>
+    <a class="a1"  asp-action="ComplaintReport">Reports</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.complaint_subject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.house_no)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.complaint_date)
+                </th>
+
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.complaint_subject)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.house_no)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.complaint_date)
+                    </td>
+                    <td>
+                        <a asp-action="ComplaintDetails" asp-route-id="@item.Id">Details</a> 
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

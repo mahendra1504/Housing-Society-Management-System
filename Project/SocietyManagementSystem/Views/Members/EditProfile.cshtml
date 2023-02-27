@@ -1,0 +1,72 @@
+﻿@model SocietyManagementSystem.Models.Registration
+
+@{
+    ViewData["Title"] = "EditProfile";
+}
+
+<h1>EditProfile</h1>
+
+<h4>Registration</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditProfile">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Firstname" class="control-label"></label>
+                <input asp-for="Firstname" class="form-control" />
+                <span asp-validation-for="Firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lastname" class="control-label"></label>
+                <input asp-for="Lastname" class="form-control" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mobileno" class="control-label"></label>
+                <input asp-for="Mobileno" class="form-control" />
+                <span asp-validation-for="Mobileno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dob" class="control-label"></label>
+                <input asp-for="Dob" class="form-control" />
+                <span asp-validation-for="Dob" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Total_Members" class="control-label"></label>
+                <input asp-for="Total_Members" class="form-control" />
+                <span asp-validation-for="Total_Members" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MemberType" class="control-label"></label>
+                <input asp-for="MemberType" class="form-control" />
+                <span asp-validation-for="MemberType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="house_no" class="control-label"></label>
+                <input asp-for="house_no" class="form-control" />
+                <span asp-validation-for="house_no" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="vechiles" class="control-label"></label>
+                <input asp-for="vechiles" class="form-control" />
+                <span asp-validation-for="vechiles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

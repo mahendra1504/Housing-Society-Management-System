@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SocietyManagementSystem.Models.Transaction>
+
+@{
+    ViewData["Title"] = "TransactionReportData";
+}
+
+<h1>TransactionReportData</h1>
+
+<p>
+    
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Maintenance_id)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.transaction_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.house_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.member_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.member_email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.transaction_amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.transaction_date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maintenance_id)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.transaction_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.house_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.member_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.member_email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.transaction_amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.transaction_date)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

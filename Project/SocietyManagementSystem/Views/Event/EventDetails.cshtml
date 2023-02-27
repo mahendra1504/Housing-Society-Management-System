@@ -1,0 +1,124 @@
+﻿@model SocietyManagementSystem.Models.Event
+
+@{
+    ViewData["Title"] = "EventDetails";
+}
+<style>
+
+    .bg-image {
+        position: absolute;
+        width: 35%;
+        height: 50%;
+        margin-right: 30px;
+        margin-left: 600px;
+        margin-top: 10px;
+    }
+
+    .bg-image1 {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .reg_label {
+        position: absolute;
+        top: 60px;
+        bottom: 0;
+        margin-left: 20px;
+        margin-right: 0;
+        color: snow;
+    }
+
+    div {
+        width: 200%;
+    }
+
+    input[type=text], input[type=password], input[type=email], input[type=number], input[type=date] {
+        border-radius: 25px;
+    }
+
+    label {
+        color: snow;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    h1 {
+        text-shadow: 2px 2px 5px;
+    }
+
+    a {
+        position:absolute;
+        color: snow;
+    }
+    .a1 {
+        margin-left:60px;
+        color: snow;
+    }
+
+    dt {
+        color: snow;
+    }
+
+    dd {
+        color: snow;
+    }
+    dl{
+        margin-top:90px;
+    }
+</style>
+<body>
+    <img src="~/images/loginhd.jpg" class="bg-image1" />
+    <h1 class="reg_label">EventDetails</h1>
+
+    <div>
+        <h4>Event</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.event_name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.event_name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.event_date)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.event_date)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.event_startime)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.event_startime)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.event_endtime)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.event_endtime)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.event_detail)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.event_detail)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.event_venue)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.event_venue)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="EventEdit" asp-route-id="@Model.Id">Edit</a> |
+        <a class="a1"  asp-action="ManageEvent">Back to List</a>
+    </div>
+</body>

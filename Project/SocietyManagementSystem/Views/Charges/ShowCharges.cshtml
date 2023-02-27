@@ -1,0 +1,120 @@
+﻿@model IEnumerable<SocietyManagementSystem.Models.ExtraCharges>
+
+@{
+    ViewData["Title"] = "ShowCharges";
+}
+<style>
+
+    .bg-image {
+        position: absolute;
+        width: 35%;
+        height: 50%;
+        margin-right: 30px;
+        margin-left: 600px;
+        margin-top: 10px;
+    }
+
+    .bg-image1 {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .reg_label {
+        position: absolute;
+        top: 60px;
+        bottom: 0;
+        margin-left: 20px;
+        margin-right: 0;
+        color: snow;
+    }
+
+    div {
+        width: 200%;
+    }
+
+    input[type=text], input[type=password], input[type=email], input[type=number], input[type=date] {
+        border-radius: 25px;
+    }
+
+    label {
+        color: snow;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    h1 {
+        text-shadow: 2px 2px 5px;
+    }
+
+    .table {
+        position: absolute;
+        margin-top: 70px;
+        margin-left: 0;
+        width: 70%;
+    }
+
+    th {
+        color: snow;
+    }
+
+    a {
+        color: snow;
+    }
+
+    td {
+        color: snow;
+    }
+
+    th, td {
+        border-bottom: 1px solid #ddd;
+    }
+</style>
+<body>
+    <img src="~/images/loginhd.jpg" class="bg-image1" />
+    <h1 class="reg_label">Charges</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.charge_type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Charge_date)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.charge_type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Charge_date)
+                    </td>
+                    <td>
+
+                        <a asp-action="ChargeDetails" asp-route-id="@item.Id">Details</a> 
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

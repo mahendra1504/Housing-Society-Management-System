@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SocietyManagementSystem.Models.Complaint>
+
+@{
+    ViewData["Title"] = "ComplaintReportData";
+}
+
+<h1>Complaint Report</h1>
+
+<p>
+    
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.complaint_subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.complaint_detail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member_mail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.house_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.complaint_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.complaint_status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.solution)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.complaint_subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.complaint_detail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member_mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.house_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.complaint_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.complaint_status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.solution)
+            </td>
+           
+        </tr>
+}
+    </tbody>
+</table>

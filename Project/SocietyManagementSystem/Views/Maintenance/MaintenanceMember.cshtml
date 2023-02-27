@@ -1,0 +1,139 @@
+﻿@model IEnumerable<SocietyManagementSystem.Models.Registration>
+
+@{
+    ViewData["Title"] = "MaintenanceMember";
+}
+
+<script src="~/js/jquery-3.5.1.min.js"></script>
+<style>
+
+    .bg-image {
+        position: absolute;
+        width: 35%;
+        height: 50%;
+        margin-right: 30px;
+        margin-left: 600px;
+        margin-top: 10px;
+    }
+
+    .bg-image1 {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .reg_label {
+        position: absolute;
+        top: 20px;
+        bottom: 0;
+        margin-left: 30px;
+        margin-right: 0;
+        color: snow;
+    }
+
+    div {
+        width: 200%;
+    }
+
+    input[type=text], input[type=password], input[type=email], input[type=number], input[type=date] {
+        border-radius: 25px;
+    }
+
+    label {
+        color: snow;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    h1 {
+        text-shadow: 2px 2px 5px;
+    }
+
+    .table {
+        position: absolute;
+        margin-top: 80px;
+        margin-left: 0;
+        width: 70%;
+    }
+
+    th {
+        color: snow;
+    }
+    p{
+        position:absolute;
+    }
+    a{
+        color:snow;
+    }
+    .a1 {
+        position: absolute;
+        margin-top:40px;
+        margin-left:20px;
+        color: snow;
+    }
+    .a2 {
+        position: absolute;
+        margin-top:40px;
+        margin-left:200px;
+        color: snow;
+    }
+
+    td {
+        color: snow;
+    }
+
+    th, td {
+        border-bottom: 1px solid #ddd;
+    }
+</style>
+<body>
+    <img src="~/images/loginhd.jpg" class="bg-image1" />
+    <h1 class="reg_label">Maintenance Member</h1>
+
+    <p style="color:snow">
+        @ViewBag.Maintenance
+    </p>
+
+        <a class="a1" asp-action="Maintenance">Generate Maintenance  |  </a>
+        <a class="a2" asp-action="MaintenanceReport"> Reports  </a>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Firstname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lastname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.house_no)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Firstname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lastname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.house_no)
+                    </td>
+                    <td>
+                        <a asp-action="MaintenanceMemberDetails" asp-route-id="@item.Id.ToString()">Details</a> 
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

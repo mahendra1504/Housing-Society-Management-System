@@ -1,0 +1,193 @@
+﻿@model SocietyManagementSystem.Models.Registration
+
+@{
+    //Layout = null;
+}
+
+
+<style>
+    .bg-image {
+        position:absolute;
+        width: 20%;
+        height: 50%;
+        margin-right: 0;
+        margin-left:750px;
+        top:150px;
+        bottom: 0;
+    }
+    .bg-image1 {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+    .reg_label {
+        position: absolute;
+        top: 40px;
+        bottom: 0;
+        margin-left: 10px;
+        margin-right: 0;
+        color: snow;
+    }
+
+    div {
+        width: 50%;
+       
+    }
+    .div1 {
+        color:snow;
+    }
+
+    input[type=text], input[type=password], input[type=email], input[type=number],input[type=date],select {
+        border-radius: 25px;
+    }
+
+    label {
+        color: snow;
+        font-size:18px;
+        font-weight:500;
+    }
+    a{
+        color:snow;
+    }
+    h1 {
+        text-shadow: 2px 2px 5px;
+    }
+    form{
+        top:120px;
+        position:absolute;
+    }   
+    span{
+        color:snow;
+    }
+    
+</style>
+<head>
+    <script src="~/js/jquery-3.5.1.min.js"></script>
+</head>
+<body style="background-color: #B4CDCD">
+    <img src="~/images/loginhd.jpg" class="bg-image1" />
+   <h1 class="reg_label">REGISTRATION FORM</h1>
+   <img class="bg-image" src="~/images/registration.jpg" />
+    <div class="div1" style=""  asp-validation-summary="ModelOnly"></div>
+    <form method="post" asp-action="SignUp">
+        <div class="mb-3">
+            <label asp-for="Firstname" for="formGroupExampleInput" class="form-label">Firstname</label>
+            <input asp-for="Firstname" type="text" class="form-control w3" required>
+            <span  asp-validation-for="Firstname"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Lastname" for="formGroupExampleInput2" class="form-label">Lastname</label>
+            <input asp-for="Lastname" type="text" class="form-control" required>
+            <span asp-validation-for="Lastname"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" for="formGroupExampleInput" class="form-label">Email</label>
+            <input asp-for="Email" type="email" class="form-control" required>
+            <span asp-validation-for="Email"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Mobileno" for="formGroupExampleInput" class="form-label">Mobile no</label>
+            <input asp-for="Mobileno" type="text" class="form-control" required>
+            <span  asp-validation-for="Mobileno"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Dob" for="formGroupExampleInput" class="form-label">Date Of Birth</label>
+            <input asp-for="Dob" type="date" class="form-control" required>
+            <span asp-validation-for="Dob"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="Total_Members" for="formGroupExampleInput" class="form-label">Total Members</label>
+            <input asp-for="Total_Members" type="number" min="1" class="form-control" required>
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="MemberType"></label>
+            <select asp-for="MemberType" id="MemberType">
+                <option value="Owner">Owner</option>
+                <option value="Renter">Renter</option>
+
+
+                <script>
+                    $(document).ready(function () {
+                        $('#MemberType').change(function () {
+                            var val = document.getElementById('MemberType').value;
+                            var m = String(val);
+                            fetchRecords(val);
+
+                        });
+                    });
+                    function fetchRecords(val) {
+                        console.log(val)
+                        $.ajax({
+                            url: '/RegistrationLogin/getHouses/',
+                            data: { myString: val },
+                            type: "GET",
+                            dataType: "json",
+                            success: function (response) {
+                                console.log(response);
+                                var data = JSON.parse(response);
+                                console.log(data);
+                                //let b = Array.from(response.split(','), Number);
+                                // console.log(b);
+                                $('#houseno').empty();
+                                var options = '';
+                                options += '<option value="Select">Select</option>';
+                                for (var i = 0; i < data.length; i = i + 1) {
+                                    options += '<option value="' + data[i] + '">' + data[i] + '</option>';
+                                }
+                                $('#houseno').append(options);
+                            }
+                        });
+                    }
+                </script>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="vechiles" for="formGroupExampleInput" class="form-label">Number Of Vechiles</label>
+            <input asp-for="vechiles" type="number" class="form-control" required>
+            <span asp-validation-for="vechiles"></span>
+        </div>
+
+
+
+        <div class="mb-3">
+            <label asp-for="house_no"></label>
+            <select asp-for="house_no" id="houseno">
+            </select>
+        </div>
+
+
+
+        <div class="mb-3">
+            <label asp-for="Password" for="formGroupExampleInput" class="form-label">Password</label>
+            <input asp-for="Password" type="password" class="form-control" required>
+            <p style="color:snow">
+                Passwords must be at least 6 characters, at least one non alphanumeric character,
+                one lowercase ('a'-'z') and one uppercase ('A'-'Z').
+            </p>
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ConfirmPassword" for="formGroupExampleInput2" class="form-label">Confirm Password</label>
+            <input asp-for="ConfirmPassword" type="password" class="form-control" required>
+            <span  asp-validation-for="ConfirmPassword"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registration</button>
+
+        @Html.ActionLink("Click here for Login", "SignIn")
+
+    </form>
+</body>

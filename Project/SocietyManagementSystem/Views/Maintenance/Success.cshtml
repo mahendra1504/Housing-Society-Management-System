@@ -1,0 +1,109 @@
+﻿@model IEnumerable<SocietyManagementSystem.Models.Maintenance>
+
+
+
+@{
+    ViewData["Title"] = "Success";
+}
+
+<h1>Maintenance Reciept</h1><br /><br />
+<hr />
+
+<p>
+
+  <h5>  @Html.DisplayNameFor(model => model.Member_name) : @foreach (var item in Model){@Html.DisplayFor(modelItem => item.Member_name)} </h5><br /> 
+
+  <h5> @Html.DisplayNameFor(model => model.house_no) : @foreach (var item in Model){@Html.DisplayFor(modelItem => item.house_no)} </h5> <br />
+
+  <h5> @Html.DisplayNameFor(model => model.Maintenance_date) : @foreach (var item in Model){@Html.DisplayFor(modelItem => item.Maintenance_date)} </h5>  <br />
+
+  <h5>  @Html.DisplayNameFor(model => model.Due_Date) : @foreach (var item in Model){@Html.DisplayFor(modelItem => item.Due_Date)}  </h5><br />
+  
+</p>
+<table class="table" border="1">
+    <thead>
+        <tr>
+
+            <th>
+               <h4 style="text-align:center"> Charges </h4> 
+            </th>
+            <th>
+              <h4 style="text-align:center"> Amount </h4>  
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayNameFor(model => model.water_charge)
+
+            </td>
+            <td>
+                @foreach (var item1 in Model)
+                {
+                <h6>@Html.DisplayFor(modelItem => item1.water_charge) </h6> 
+                }
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.electricity_charge)
+
+            </td>
+            <td>
+                @foreach (var item1 in Model)
+                { <h6>@Html.DisplayFor(modelItem => item1.electricity_charge)</h6>  }
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Parking_charge)
+
+            </td>
+            <td>
+                @foreach (var item1 in Model)
+                { <h6>@Html.DisplayFor(modelItem => item1.Parking_charge)</h6>   }
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.service_charge)
+
+            </td>
+            <td>
+                @foreach (var item1 in Model)
+                { <h6>@Html.DisplayFor(modelItem => item1.service_charge)</h6>   }
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.housetype_charge)
+
+            </td>
+            <td>
+                @foreach (var item1 in Model)
+                { <h6>@Html.DisplayFor(modelItem => item1.housetype_charge)</h6>   }
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b> @Html.DisplayNameFor(model => model.Total_Amount)</b> 
+
+            </td>
+            <td>
+                @foreach (var item1 in Model)
+                { <h6>@Html.DisplayFor(modelItem => item1.Total_Amount)</h6>}
+
+            </td>
+        </tr>
+        
+}
+    </tbody>
+</table>

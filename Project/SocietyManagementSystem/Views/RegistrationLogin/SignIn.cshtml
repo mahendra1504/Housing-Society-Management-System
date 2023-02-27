@@ -1,0 +1,91 @@
+﻿@model SocietyManagementSystem.Models.Login
+
+@{
+    ViewData["Title"] = "SignIn";
+}
+
+<style>
+    
+    .bg-image {
+        position: absolute;
+        width: 35%;
+        height: 70%;
+        margin-right: 30px;
+        margin-left: 600px;
+        margin-top:10px;
+       
+    }
+    .bg-image1 {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .reg_label {
+        position: absolute;
+        top: 90px;
+        bottom: 0;
+        margin-left: 30px;
+        margin-right: 0;
+        color:snow;
+    }
+
+    div {
+        width:200%;
+    }
+    .errordiv{
+        margin-top:100px;
+        position:absolute;
+        color:snow;
+    }
+
+    input[type=text], input[type=password], input[type=email], input[type=number], input[type=date] {
+        border-radius: 25px;
+     
+    }
+
+    label {
+        color:snow;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    h1 {
+        text-shadow: 2px 2px 5px;
+    }
+    a{
+        color:snow;
+    }
+    form{
+        position:absolute;
+       margin-top:150px;
+    }
+</style>
+<body style="background-color: #B4CDCD" >
+    <img src="~/images/loginhd.jpg" class="bg-image1"/>
+    <h1 class="reg_label"> Login Form</h1>
+    <div class="errordiv" asp-validation-summary="All"></div>
+    <img class="bg-image" src="~/images/login2.png" />
+    <form method="post" asp-action="SignIn">
+        <div class="mb-3">
+            <label asp-for="Email" for="exampleInputEmail1" class="form-label">Email address</label>
+            <input asp-for="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password" for="exampleInputPassword1" class="form-label">Password</label>
+            <input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1" required>
+        </div>
+        <div class="mb-3 form-check">
+            <input asp-for="RememberMe" type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label asp-for="RememberMe" class="form-check-label" for="exampleCheck1">Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <a asp-controller="RegistrationLogin" asp-action="SignUp">Click here for Registration</a>
+
+    </form>
+</body>

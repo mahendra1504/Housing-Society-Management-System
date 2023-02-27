@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SocietyManagementSystem.Models.ExtraCharges>
+
+@{
+    ViewData["Title"] = "ExtrachargeSuccess";
+}
+
+<h1>Charge Reciept</h1>
+<hr />
+
+<p>
+
+    <h5> @Html.DisplayNameFor(model => model.house_no) : @foreach (var item in Model){@Html.DisplayFor(modelItem => item.house_no)} </h5> <br />
+
+    <h5> @Html.DisplayNameFor(model => model.Charge_date) : @foreach (var item in Model){@Html.DisplayFor(modelItem => item.Charge_date)} </h5>  <br />
+
+    
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Charges
+            </th>
+            <th>
+                Amount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.charge_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

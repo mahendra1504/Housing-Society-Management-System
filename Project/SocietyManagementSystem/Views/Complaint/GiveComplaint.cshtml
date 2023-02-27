@@ -1,0 +1,93 @@
+﻿@model SocietyManagementSystem.Models.Complaint
+
+@{
+    ViewData["Title"] = "GiveComplaint";
+}
+
+
+<style>
+
+    .bg-image {
+        position: absolute;
+        width: 35%;
+        height: 50%;
+        margin-right: 30px;
+        margin-left: 600px;
+        margin-top: 10px;
+    }
+
+    .bg-image1 {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .reg_label {
+        position: absolute;
+        top: 60px;
+        bottom: 0;
+        margin-left: 30px;
+        margin-right: 0;
+        color: snow;
+    }
+
+    div {
+        width: 200%;
+    }
+
+    input[type=text], input[type=password], input[type=email], input[type=number], input[type=date] {
+        border-radius: 25px;
+    }
+
+    label {
+        color: snow;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    h1 {
+        text-shadow: 2px 2px 5px;
+    }
+    a{
+        position:absolute;
+        margin-left:100px;
+        margin-top:390px;
+        color:snow;
+    }
+    form {
+        position: absolute;
+        margin-top: 100px;
+        margin-bottom:0;
+    }
+</style>
+<body>
+    <img src="~/images/loginhd.jpg" class="bg-image1" />
+    <img src="~/images/cimages.jpg" class="bg-image" />
+    <h1 class="reg_label">Complaint Form</h1>
+
+
+    <form asp-action="GiveComplaint">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="complaint_subject" class="control-label"></label>
+            <input asp-for="complaint_subject" class="form-control" required/>
+            <span asp-validation-for="complaint_subject" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="complaint_detail" class="control-label"></label>
+            <textarea asp-for="complaint_detail" class="form-control" rows="5" required></textarea>
+            <span asp-validation-for="complaint_detail" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+    </form>
+    <div>
+        <a asp-action="MyComplaint">Back to List</a>
+    </div>
+</body>
+

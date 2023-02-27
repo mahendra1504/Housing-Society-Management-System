@@ -1,0 +1,138 @@
+﻿@model SocietyManagementSystem.Models.Registration
+
+@{
+    ViewData["Title"] = "MintenanceMemberDetails";
+}
+<style>
+
+    .bg-image {
+        position: absolute;
+        width: 35%;
+        height: 50%;
+        margin-right: 30px;
+        margin-left: 600px;
+        margin-top: 10px;
+    }
+
+    .bg-image1 {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .reg_label {
+        position: absolute;
+        top: 60px;
+        bottom: 0;
+        margin-left: 20px;
+        margin-right: 0;
+        color: snow;
+    }
+
+    div {
+        width: 200%;
+    }
+
+    input[type=text], input[type=password], input[type=email], input[type=number], input[type=date] {
+        border-radius: 25px;
+    }
+
+    label {
+        color: snow;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    h1 {
+        text-shadow: 2px 2px 5px;
+    }
+
+    a {
+        position:absolute;
+        color: snow;
+    }
+
+    dt {
+        color: snow;
+      
+    }
+
+    dd {
+        color: snow;
+       
+    }
+    dl{
+        margin-top:120px;
+    }
+</style>
+<body>
+    <img src="~/images/loginhd.jpg" class="bg-image1" />
+    <h1 class="reg_label">Maintenance Member Details</h1>
+
+    <div>
+
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Firstname)
+            </dt>
+            <dd class="col-sm-10" >
+                @Html.DisplayFor(model => model.Firstname)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Lastname)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Lastname)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Mobileno)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Mobileno)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Dob)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Dob)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Total_Members)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Total_Members)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MemberType)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MemberType)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.house_no)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.house_no)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.vechiles)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.vechiles)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="MaintenanceMember">Back to List</a>
+    </div>
+</body>

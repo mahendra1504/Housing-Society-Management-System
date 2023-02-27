@@ -1,0 +1,97 @@
+﻿@model SocietyManagementSystem.Models.Charges
+
+@{
+    ViewData["Title"] = "NewCharge";
+}
+
+<style>
+
+    .bg-image {
+        position: absolute;
+        width: 35%;
+        height: 50%;
+        margin-right: 30px;
+        margin-left: 600px;
+        margin-top: 10px;
+    }
+
+    .bg-image1 {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .reg_label {
+        position: absolute;
+        top: 40px;
+        bottom: 0;
+        margin-left: 30px;
+        margin-right: 0;
+        color: snow;
+    }
+
+    div {
+        width: 200%;
+    }
+
+    input[type=text], input[type=password], input[type=email], input[type=number], input[type=date] {
+        border-radius: 25px;
+    }
+
+    label {
+        color: snow;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    h1 {
+        text-shadow: 2px 2px 5px;
+    }
+
+    a {
+        color: snow;
+        margin-top: 250px;
+        margin-left: 80px;
+        position: absolute;
+    }
+
+    form {
+        position: absolute;
+        margin-top: 70px;
+        margin-bottom: 0;
+    }
+</style>
+<body>
+    <img src="~/images/loginhd.jpg" class="bg-image1" />
+    <h1 class="reg_label">New Charge</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="NewCharge">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="charge_name" class="control-label"></label>
+                    <input asp-for="charge_name" class="form-control" required/>
+                    <span asp-validation-for="charge_name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="charge_amount" class="control-label"></label>
+                    <input asp-for="charge_amount" type="text" class="form-control" required />
+                    <span asp-validation-for="charge_amount" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="ManageCharges">Back to List</a>
+    </div>
+
+</body>

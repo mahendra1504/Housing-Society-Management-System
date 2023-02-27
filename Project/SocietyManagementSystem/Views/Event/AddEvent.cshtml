@@ -1,0 +1,115 @@
+﻿@model SocietyManagementSystem.Models.Event
+
+@{
+    ViewData["Title"] = "AddEvent";
+}
+
+<style>
+
+    .bg-image {
+        position: absolute;
+        width: 35%;
+        height: 50%;
+        margin-right: 30px;
+        margin-left: 600px;
+        margin-top: 10px;
+    }
+
+    .bg-image1 {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .reg_label {
+        position: absolute;
+        top: 50px;
+        bottom: 0;
+        margin-left: 30px;
+        margin-right: 0;
+        color: snow;
+    }
+
+    div {
+        width: 200%;
+    }
+
+    input[type=text], input[type=password], input[type=email], input[type=number], input[type=date] {
+        border-radius: 25px;
+    }
+
+    label {
+        color: snow;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    h1 {
+        text-shadow: 2px 2px 5px;
+    }
+    a{
+        color:snow;
+        margin-top:750px;
+        margin-left:90px;
+        position:absolute;
+    }
+
+    form {
+        position: absolute;
+        margin-top: 110px;
+        margin-bottom: 0;
+    }
+</style>
+<body>
+    <img src="~/images/loginhd.jpg" class="bg-image1" />
+    <h1 class="reg_label">New Event</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="AddEvent">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="event_name" class="control-label"></label>
+                    <input asp-for="event_name" class="form-control" required/>
+                    <span asp-validation-for="event_name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="event_date" class="control-label"></label>
+                    <input type="date" asp-for="event_date" class="form-control" required/>
+                    <span asp-validation-for="event_date" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="event_startime" class="control-label"></label>
+                    <input type="time" asp-for="event_startime" class="form-control" required />
+                    <span asp-validation-for="event_startime" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="event_endtime" class="control-label"></label>
+                    <input type="time" asp-for="event_endtime" class="form-control" required/>
+                    <span asp-validation-for="event_endtime" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="event_detail" class="control-label"></label>
+                    <textarea asp-for="event_detail" class="form-control" rows="5" cols="10" required></textarea>
+                    <span asp-validation-for="event_detail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="event_venue" class="control-label"></label>
+                    <input asp-for="event_venue" class="form-control" required />
+                    <span asp-validation-for="event_venue" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="ManageEvent">Back to List</a>
+    </div>
+</body>

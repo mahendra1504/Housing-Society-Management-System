@@ -1,0 +1,97 @@
+﻿@model IEnumerable<SocietyManagementSystem.Models.Maintenance>
+
+@{
+    ViewData["Title"] = "MaintenanceReportData";
+}
+
+
+<h1>Maintenance Status Report</h1>
+
+<p>
+    
+</p>
+<table class="table" border="1">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Member_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member_mail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.house_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.water_charge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.electricity_charge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parking_charge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.service_charge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.housetype_charge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total_Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Maintenance_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Due_Date)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member_mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.house_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.water_charge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.electricity_charge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parking_charge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.service_charge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.housetype_charge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total_Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maintenance_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Due_Date)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

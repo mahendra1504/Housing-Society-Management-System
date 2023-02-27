@@ -1,0 +1,177 @@
+﻿@model SocietyManagementSystem.Models.Maintenance
+
+@{
+    ViewData["Title"] = "MaintenanceDelete";
+}
+<style>
+
+    .bg-image {
+        position: absolute;
+        width: 35%;
+        height: 50%;
+        margin-right: 30px;
+        margin-left: 600px;
+        margin-top: 10px;
+    }
+
+    .bg-image1 {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .reg_label {
+        position: absolute;
+        top: 60px;
+        bottom: 0;
+        margin-left: 20px;
+        margin-right: 0;
+        color: snow;
+    }
+
+    div {
+        width: 200%;
+    }
+
+    input[type=text], input[type=password], input[type=email], input[type=number], input[type=date] {
+        border-radius: 25px;
+    }
+
+    label {
+        color: snow;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    h1 {
+        text-shadow: 2px 2px 5px;
+    }
+
+    h3 {
+        position: absolute;
+        margin-top: 10px;
+        margin-top: 0;
+        color: snow;
+    }
+
+    a {
+        margin-left: 120px;
+        position: absolute;
+        color: snow;
+    }
+
+    dt {
+        color: snow;
+    }
+
+    dd {
+        color: snow;
+    }
+
+    dl {
+        margin-top: 130px;
+    }
+
+    form {
+        margin-left: 30px;
+        position: absolute;
+    }
+</style>
+<body>
+    <img src="~/images/loginhd.jpg" class="bg-image1" />
+    <h1 class="reg_label">Maintenance Delete</h1>
+
+    <div>
+       
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Member_name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Member_name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Member_mail)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Member_mail)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.house_no)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.house_no)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.water_charge)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.water_charge)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.electricity_charge)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.electricity_charge)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Parking_charge)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Parking_charge)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.service_charge)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.service_charge)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.housetype_charge)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.housetype_charge)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Total_Amount)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Total_Amount)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.status)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.status)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Maintenance_date)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Maintenance_date)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Due_Date)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Due_Date)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.sending_status)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.sending_status)
+            </dd>
+        </dl>
+
+        <form asp-action="MaintenanceDelete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+        </form>
+        <a asp-action="ManageMaintenance">Back to List</a>
+    </div>
+</body>
